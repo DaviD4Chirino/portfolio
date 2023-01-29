@@ -1,0 +1,135 @@
+@keyframes grow {
+  from {
+    box-shadow: 0px 0px 1px 1px rgba(0 , 0, 0, 0);
+  }
+  to {
+    box-shadow: 15px 15px 1px 1px rgba(0 , 0, 0, 0.5);
+  }
+}
+
+.project_showcase > .body > a {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  width: 100%;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  margin-bottom: 50px;
+  text-decoration: none;
+
+}
+.project_showcase > .body > a{
+  transition:box-shadow 0.1s;
+  z-index: 4
+
+}
+.project_showcase > .body > a:hover {
+  box-shadow: 0px 0px 16px 8px rgba(0,0,0,0.8);
+}
+.col-1 {
+  margin: auto;
+  padding: 20px;
+  width: 30%;
+  height: 100%;
+}
+.col-2 {
+  margin: auto;
+  padding: 20px;
+  width: 60%;
+}
+.col-1 > img {
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 200px;
+  max-height: 200px;
+  width: 100%;
+  object-position: top;
+  margin: auto;
+  object-fit: cover;
+  border: 2px solid var(--black-chocolate)
+}
+
+.project_title {
+  border-bottom: 5px solid var(--black-chocolate);
+  margin-bottom: 20px;
+
+}
+.project_title >h1 {
+  display: inline;
+  font-size: 36px;
+  font-weight: bolder;
+
+}
+.project_description {
+  font-size: 20px
+}
+.project_description p {
+  margin-top: -10px
+}
+
+.date {
+  display: inline;
+
+}
+.icon {
+  position:absolute;
+  font-size: 25px;
+  top: 2%;
+  left: 98%;
+  translate : -50% -50%;
+  width: 50px;
+  height: 50px;
+  padding: 0px;
+  background-color: white;
+  border-radius: 50%;
+  border: none;
+
+  transition: width 0.5s,height 0.5s;
+
+  z-index: 5;
+
+}
+
+.icon-button {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+
+  text-decoration: none;
+
+  margin-top: -30px;
+
+  background-color: var(--black-chocolate);
+  max-width: 210px;
+  border-radius: 5px;
+
+}
+.icon-button-text {
+  color: whitesmoke;
+  width: auto;
+}
+
+.icon-button > i {
+  font-size: 32px;
+  color: var(--compliment_color);
+  margin: 10px;
+  padding: 2px;
+}
+.icon-button:hover {
+  cursor: pointer;
+  background-color: black
+}
+
+@media (max-width: 750px) {
+  .col-1,.col-2 {
+    width: auto
+  }
+  .project_showcase > .body > a {
+    flex-direction: column;
+  }
+}
