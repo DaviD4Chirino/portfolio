@@ -1,0 +1,20 @@
+#back-button {
+  display: inline-flex;
+  flex-direction: row;
+  column-gap: 0.5rem;
+  font-size: 1.4rem;
+  color: whitesmoke;
+  background-color: var(--black-chocolate);
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin: 1rem;
+  border: 2px solid var(--black-chocolate);
+
+  text-decoration: none;
+
+  transition: border 0.4s;
+}
+
+#back-button:hover {
+  border-color: var(--compliment_color);
+}
