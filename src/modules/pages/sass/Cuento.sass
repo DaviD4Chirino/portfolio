@@ -1,0 +1,63 @@
+@use "../../../theme"
+#Cuento
+    padding-top: 10dvh
+    border:
+        bottom: 5px solid theme.$color-2
+    background:
+        color:whitesmoke
+    color: black
+
+    #Title
+        padding-bottom: 2.5rem
+        border:
+            bottom: 5px solid theme.$color-2
+        .wrapper
+            width: 70%
+            margin-inline: auto
+            h1
+                text-align: center
+                font-size: 2.5rem
+                line-height: 2.8rem
+            #Date
+                display: block
+                transform: translateX(20px)
+                color: theme.$color-3
+    #Content
+        font-size: calc(100% + .3vw)
+        line-height: calc(1.3ex / 0.32)
+        overflow: hidden
+        #WaterMark
+            $size:80dvh
+            width:$size
+            height:$size
+            opacity: 0.0
+
+.desktop #Cuento #Title .wrapper
+    #Date
+        width: 70%
+    
+
+#Cuento #H_Eros_I_Tanatos
+    $n: 14
+    @for $i from 0 through $n
+
+        #P#{$n + $i}
+            text-align: end
+
+#ContinueReading
+    $min-size: 300px
+    $card-size: max($min-size, 20vw + 1rem)
+
+    position: absolute
+    left: 0
+    margin-top: 3rem
+    width: 100%
+    #CardHolderAfterReading
+        display: flex
+        align-items: center
+        justify-content: space-between
+        overflow-x: auto
+        .card
+            margin: 2rem
+            min-width: $card-size
+            min-height: $card-size
