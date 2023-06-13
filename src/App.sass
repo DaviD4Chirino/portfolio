@@ -1,61 +1,6 @@
 // put here the project especific clases
 @use "./theme.sass"
-@use 'sass:color'
 
-body
-    color: theme.$color-1
-    background-color: darken(theme.$color-3,$amount: 15%)
-
-$min-size: 300px
-$card-size: max($min-size, 20vw + 1rem)
-#CardHolder
-    display: grid
-    grid-template-columns: repeat(auto-fill, $min-size)
-    gap: $min-size * 0.15
-
-    justify-content: center
-    padding: 2rem
-
-.card
-    $padding: .7rem
-    width: $card-size
-    height: $card-size
-    margin-inline: auto
-
-    background-position: 50%
-    box-shadow: 0 0 15px rgba(0, 0, 0, .8)
-
-    cursor: pointer
-
-    .bg-color
-        height: 100%
-        background-color: transparentize(theme.$color-2, .1)
-
-    &-info
-        display: grid
-        grid-template-rows: .5fr 2fr .5fr
-        height: 100%
-    &-desc
-        overflow-y: auto
-    &-date
-        padding-top: 1rem
-        text-align: end
-
-    &-title,&-desc,&-date
-        padding: $padding
-        transition: all .4s ease
-
-    &:hover .card-title,&:hover .card-desc,&:hover .card-date
-        padding: $padding * 1.5
-
-#Portfolio,#Projects,#Library
-    animation: fade-in .4s forwards ease-out
-#Library
-    *
-        animation: fade-in .4s forwards ease-out
-
-@keyframes fade-in
-    from
-        opacity: 0
-    to
-        opacity: 100%
+html
+    color-scheme: dark light
+    background-color: theme.$color-3
