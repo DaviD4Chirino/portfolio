@@ -1,0 +1,18 @@
+// put here the project especific clases
+@use "./theme"
+@use "./mixins" as *
+
+html,body
+    color-scheme: dark light
+    background:
+        color: theme.$color-3
+
+    @include ideal-font-size(16px)
+    min-height: 100vh
+
+*,*::before,*::after
+    box-sizing: content-box
+*
+    margin: 0
+*[role="button"]
+    cursor: pointer

@@ -4,21 +4,20 @@ const themeOptions = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#b388ff",
+      main: "#1F6E8C",
     },
     secondary: {
-      main: "#ff80ab",
+      main: "#270082",
     },
     info: {
-      main: "#0288d1",
+      main: "#FA58B6",
     },
     background: {
-      default: "#1a002d",
-      paper: "#0b0431",
+      default: "#1A1A40",
+      paper: "#18014f",
     },
   },
 });
-import React from "react";
 
 export default function MuiTheme({ children }: { children: any }) {
   return <ThemeProvider theme={themeOptions}>{children}</ThemeProvider>;

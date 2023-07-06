@@ -1,14 +1,11 @@
 $n: 10
 $general-amt: 1rem
-@mixin no-padding-or-margin
-    padding: 0
-    margin: 0
-
-*,*::before,*::after
-    box-sizing: content-box
+@use "./mixins" as *
 
 //  General page changes ^
-
+.container
+    width: min(100% - 2rem,60rem)
+    margin-inline: auto
 // visibility
 .full
     &-opacity
@@ -16,10 +13,6 @@ $general-amt: 1rem
 .no
     &-opacity
         opacity: 0
-// .hide
-//     display: none
-// .show
-//     display: block
 
 //width, height and size
 .size
@@ -92,6 +85,14 @@ $general-amt: 1rem
     padding: $general-amt
 .margin
     margin: $general-amt
+    &-top
+        margin-top: $general-amt
+    &-bottom
+        margin-bottom: $general-amt
+    &-start,&-left
+        margin-start: $general-amt
+    &-end,&-right
+        margin-end: $general-amt
 .gap,.gap-1
     gap: $general-amt
 .gap
@@ -165,9 +166,9 @@ $general-amt: 1rem
 .center
     margin: auto
     &-x
-        margin-inline: auto
+        width-inline: auto
     &-y
-        margin-block: auto
+        width-block: auto
     &-absolute
         position: absolute
         top: 50%
@@ -294,18 +295,15 @@ $general-amt: 1rem
     &-lower
         text-transform: lowercase
 
+    &-elipsis
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+
 .muted //* Opacity for a class that i can use everywere
     opacity: .5
 .unmuted
     opacity: 1
-
-.text-overflow-elipsis-multiline
-    $line-amt: 3
-    overflow: hidden
-    display: -webkit-box
-    -webkit-box-orient: vertical
-    -webkit-line-clamp: $line-amt
-    white-space: pre-wrap
 
 @for $i from 1 through 5
     @if $i != 3
@@ -401,12 +399,15 @@ $general-amt: 1rem
                     >*
                         scroll-snap-align: center
 
-.icon
-    font-size: 1.5rem
+// .icon
+//     font-size: 1.5rem
 
 // positioning
 .absolute
     position: absolute
+    &-center
+        @include absolute-center()
+
 .relative
     position: relative
 .top
@@ -429,3 +430,109 @@ $general-amt: 1rem
         border: 1px solid blue
     &-yellow
         border: 1px solid yellow
+
+// Animations
+@keyframes fade-in
+    from
+        opacity: 0
+    to
+        opacity: 1
+
+@keyframes fade-out
+    from
+        opacity: 1
+    to
+        opacity: 0
+
+@keyframes grow-in
+    from
+        transform: scale(.1)
+    to
+        transform: scale(1)
+
+@keyframes grow-out
+    from
+        transform: scale(1)
+    to
+        transform: scale(.1)
+//Animation classes
+.fade-in
+    animation:
+        name: fade-in
+        duration: .4s
+        timing-function: ease
+
+.fade-out
+    animation:
+        name: fade-out
+        duration: .4s
+        timing-function: ease
+.grow-in
+    animation:
+        name: grow-in
+        duration: .4s
+        timing-function: ease
+.grow-out
+    animation:
+        name: grow-out
+        duration: .4s
+        timing-function: ease
+// transition and animation duration
+@for $i from 1 through $n
+    .anim,.animation
+        @if $i * 0.1s != 1s
+            &-0#{$i}s
+                animation-duration: $i * 0.1s !important
+    .transition,.trans
+        &-0#{$i}
+            @if $i * 0.1s != 1s
+                transition-duration: $i * .1s !important
+
+@for $i from 1 through $n
+    .anim,.animation
+        &-#{$i}s
+            animation-duration: $i * 1s
+    .transition,.trans
+        &-#{$i}
+            transition-duration: $i * 1s
+
+//ease format 
+.ease
+    animation-timing-function: ease
+    &-in
+        animation-timing-function: ease-in
+    &-out
+        animation-timing-function: ease-out
+    &-in-out
+        animation-timing-function: ease-in-out
+
+.scroll
+    &-container
+        overflow: hidden
+        white-space: nowrap
+
+    &-text
+        // animation properties 
+        width: 100% !important
+
+        -moz-transform: translateX(100%)
+        -webkit-transform: translateX(100%)
+        transform: translateX(100%)
+
+        -moz-animation: scroll 20s linear infinite
+        -webkit-animation: scroll 20s linear infinite
+        animation: scroll 20s infinite linear
+
+// firefox
+@-moz-keyframes scroll
+  100%  
+    -moz-transform: translateX(-100)
+
+// chrome
+@-webkit-keyframes scroll
+  100%  
+    -webkit-transform: translateX(-100)
+
+@keyframes scroll
+    100%
+        transform: translateX(-100%)
