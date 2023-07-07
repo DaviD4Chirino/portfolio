@@ -10,3 +10,8 @@
 
 @mixin ideal-font-size($base:15px)
     font-size: calc($base + 0.390625vw)
+
+@mixin transition-children($iterations:4)
+    @for $i from 1 through 4
+        &:nth-child(#{$i})
+            transition: all .2s #{$i * .1}s ease-in

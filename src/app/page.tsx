@@ -1,11 +1,15 @@
 "use client";
 import "./sass/Home.sass";
 
+import WebDev from "@/modules/WebDev";
+
 import { PiMoonFill as MoonI } from "react-icons/pi";
 export default function Home() {
   return (
     <main id="Home">
       <Header />
+      {/* I am a...*/}
+      <WebDev />
     </main>
   );
 }

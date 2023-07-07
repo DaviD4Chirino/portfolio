@@ -1,0 +1,21 @@
+@use "../../sass/mixins" as M
+@use "../../sass/animations" as *
+#WebDev
+    margin-block: 1rem
+    .icon-container
+        display: flex
+        column-gap: 1rem
+        padding-inline: 1rem
+        padding-block: .5rem
+        overflow: auto hidden
+        >*
+            flex-shrink: 0
+        .language
+            display: grid
+            justify-content: center
+            align-content: center
+            text-align: center
+
+            .icon
+                svg
+                    @include M.ideal-font-size(48px)
