@@ -15,15 +15,11 @@ function Header() {
     <header>
       <div className="container">
         <div id="Banner">
-          <div className="hero">
-            <div className="wrapper relative">
-              <h1 className="hero-1">David</h1>
-              <h1 className="hero-2">Space</h1>
-              <MoonI className="absolute icon" />
-            </div>
-          </div>
-          <div className="slogan">
-            <b>Where ideas comes to thrive</b>
+          <div className="title">
+            <MoonI className="moon" />
+            <h1 className="david">David</h1>
+            <h1 className="space">Space</h1>
+            <b className="slogan">Where ideas comes to thrive</b>
           </div>
         </div>
       </div>
