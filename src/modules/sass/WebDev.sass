@@ -22,24 +22,6 @@
             .icon
                 svg
                     @include M.ideal-font-size(48px)
-.separator
-    position: relative
-    display: flex
-    justify-content: center
-    align-items: center
-    gap: .5rem
-    &::before,
-    &::after
-        content: ''
-        display: block
-        height: 0.09em
-        min-width: 20vw
-
-    &::before
-        background: linear-gradient(to right, rgba(240,240,240,0), #fff)
-
-    &::after
-        background: linear-gradient(to left, rgba(240,240,240,0), #fff)
 @media (max-width:20rem)
     .separator
         &::before,

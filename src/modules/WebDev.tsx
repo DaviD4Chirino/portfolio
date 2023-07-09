@@ -1,4 +1,3 @@
-"use client";
 import "./sass/WebDev.sass";
 //* Icons imports
 import { BiLogoJavascript as JavaScriptI } from "react-icons/bi";
@@ -27,7 +26,7 @@ import {
 import { since } from "@/utils/Date";
 
 import { motion } from "framer-motion";
-import { Button, IconButton } from "@mui/material";
+// import { Button, IconButton } from "@mui/material";
 export default function WebDev() {
   const container = {
     hidden: { opacity: 1, scale: 0 },
@@ -50,19 +49,19 @@ export default function WebDev() {
         animate="visible"
         className="icon-container"
       >
-        <Language name="JavaScript" icon={<JavaScriptI />} since="2020-11-15" />
         <Language name="HTML" icon={<HtmlI />} since="2020-11-11" />
         <Language name="CSS" icon={<CssI />} since="2020-11-11" />
+        <Language name="JavaScript" icon={<JavaScriptI />} since="2020-11-15" />
         <Language name="TypeScript" icon={<TypescriptI />} since="2021-05-05" />
+        <Language name="JQuery" icon={<JqueryI />} since="2021-02-11" />
         <Language name="Sass" icon={<SassI />} since="2022-02-11" />
-        <Language name="React" icon={<ReactI />} since="2022-02-11" />
-        <Language name="Electron" icon={<ElectronI />} since="2022-02-11" />
+        <Language name="React Js" icon={<ReactI />} since="2022-02-11" />
+        <Language name="Electron Js" icon={<ElectronI />} since="2022-02-11" />
         <Language name="PHP" icon={<PhpI />} since="2021-02-11" />
-        <Language name="Node" icon={<NodeI />} since="2022-02-11" />
+        <Language name="Node Js" icon={<NodeI />} since="2022-02-11" />
         <Language name="MySQL" icon={<MysqlI />} since="2023-02-11" />
         <Language name="Python" icon={<PythonI />} since="2023-02-11" />
         {/* <Language name="Godot" icon={<GodotI />} since="2021-02-11" /> */}
-        {/* <Language name="JQuery" icon={<JqueryI />} since="2021-02-11" /> */}
       </motion.div>
     </article>
   );
@@ -73,6 +72,8 @@ type LanguageProps = {
   icon: JSX.Element;
   /** A date string  YYYY-MM-DD*/
   since: string;
+  className?: string;
+  id?: string;
 };
 function Language(props: LanguageProps) {
   const item = {
@@ -92,7 +93,12 @@ function Language(props: LanguageProps) {
       : "1 year";
   return (
     <motion.div className="language" variants={item}>
-      <div className="icon">{props.icon}</div>
+      <div
+        className={`icon ${props.className ? props.className : ""}`}
+        id={props.id || ""}
+      >
+        {props.icon}
+      </div>
       <b>{props.name}</b>
       <p>{time}</p>
     </motion.div>
