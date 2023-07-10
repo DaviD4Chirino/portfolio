@@ -18,14 +18,10 @@ import {
   SiMysql as MysqlI,
   SiPython as PythonI,
 } from "react-icons/si";
-import {
-  IoIosArrowBack as ArrowBackI,
-  IoIosArrowForward as ArrowForwardI,
-} from "react-icons/io";
 //*
-import { since } from "@/utils/Date";
 
 import { motion } from "framer-motion";
+import Language from "../components/Language";
 // import { Button, IconButton } from "@mui/material";
 export default function WebDev() {
   const container = {
@@ -49,6 +45,7 @@ export default function WebDev() {
         animate="visible"
         className="icon-container"
       >
+        {/* Keep it short */}
         <Language name="HTML" icon={<HtmlI />} since="2020-11-11" />
         <Language name="CSS" icon={<CssI />} since="2020-11-11" />
         <Language name="JavaScript" icon={<JavaScriptI />} since="2020-11-15" />
@@ -64,43 +61,5 @@ export default function WebDev() {
         {/* <Language name="Godot" icon={<GodotI />} since="2021-02-11" /> */}
       </motion.div>
     </article>
-  );
-}
-
-type LanguageProps = {
-  name: string;
-  icon: JSX.Element;
-  /** A date string  YYYY-MM-DD*/
-  since: string;
-  className?: string;
-  id?: string;
-};
-function Language(props: LanguageProps) {
-  const item = {
-    hidden: { y: -20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-    },
-  };
-  const time =
-    parseInt(since(props.since, "year")) <= 0
-      ? parseInt(since(props.since, "month")) > 1
-        ? since(props.since, "month") + " months"
-        : "1 month"
-      : parseInt(since(props.since, "year")) > 1
-      ? since(props.since, "year") + " years"
-      : "1 year";
-  return (
-    <motion.div className="language" variants={item}>
-      <div
-        className={`icon ${props.className ? props.className : ""}`}
-        id={props.id || ""}
-      >
-        {props.icon}
-      </div>
-      <b>{props.name}</b>
-      <p>{time}</p>
-    </motion.div>
   );
 }
