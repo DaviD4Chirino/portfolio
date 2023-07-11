@@ -1,4 +1,5 @@
 import "./sass/WebDev.sass";
+import "./sass/WebDebGrid.scss";
 //* Icons imports
 import { BiLogoJavascript as JavaScriptI } from "react-icons/bi";
 import { AiFillHtml5 as HtmlI } from "react-icons/ai";
@@ -60,6 +61,15 @@ export default function WebDev() {
         <Language name="Python" icon={<PythonI />} since="2023-02-11" />
         {/* <Language name="Godot" icon={<GodotI />} since="2021-02-11" /> */}
       </motion.div>
+      <div className="container">
+        <h3>Some of my projects includes:</h3>
+        <div id="ProjectsSample">
+          <div className="debug-red project-1"></div>
+          <div className="debug-red project-2"></div>
+          <div className="debug-red project-3"></div>
+          <div className="debug-red project-4"></div>
+        </div>
+      </div>
     </article>
   );
 }

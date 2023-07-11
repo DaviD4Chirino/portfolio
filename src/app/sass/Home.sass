@@ -5,10 +5,12 @@
         display: flex
         height: 60vh // * Maybe change it?
         background:
-            color: $color-1
+            color: black
             image: url("/stars-background.svg")
         clip-path: polygon(0 0%, 100% 0, 100% 90%, 0% 100%)
         #Banner
+            position: relative
+            isolation: isolate
             display: flex
             justify-content: center
             align-content: center
@@ -16,32 +18,22 @@
             height: 100%
 
             .title
-                position: relative
-                isolation: isolate
-                @include ideal-font-size(3rem)
-                flex: 1
-                max-width: 25rem
-
-                line-height: 3.5rem
-
+                width: 20rem
+                max-width: 30rem
                 $shadow-color: darken($color-1,10%)
+                $pos: 5px
+                text-shadow: -$pos $pos 0 $shadow-color,-1px -1px 0 $shadow-color, 1px -1px 0 $shadow-color,-1px 1px 0 $shadow-color, 1px 1px 0 $shadow-color
 
-                text-shadow: -5px 5px 0 $shadow-color,-1px -1px 0 $shadow-color, 1px -1px 0 $shadow-color,-1px 1px 0 $shadow-color, 1px 1px 0 $shadow-color
-                .space,.slogan
-                    display: block
+                .david,.space
+                    @include ideal-font-size(4rem)
+                    line-height: 2.3rem
+                .space
                     text-align: end
+                .slogan
+                    line-height: 3rem
 
-                svg.moon
-                    position: absolute
-                    right: 0
-                    top: -30%
-                    @include ideal-font-size(10rem)
-                    z-index: -1
-
-                    filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.808))
-
-            .slogan
-                @include ideal-font-size(1rem)
-                line-height: 5rem
-                text-align: end
-                -webkit-text-stroke: 0px
+            .visual
+                position: absolute
+                left: 100%
+                transform: translateX(-100%)
+                z-index: -1
