@@ -1,15 +1,32 @@
 "use client";
 import "./sass/Home.sass";
 import Img from "next/image";
-
+import IndexLink from "@/components/IndexLink";
+import { MdOutlineWeb as WebDevI } from "react-icons/md";
+import { TfiWrite as WriteI, TfiGame as GameI } from "react-icons/tfi";
 import WebDev from "@/modules/WebDev";
-
-import { PiMoonFill as MoonI } from "react-icons/pi";
 export default function Home() {
   return (
     <main id="Home">
       <Header />
-      {/* I am a...*/}
+      <article id="Index">
+        <h2 className="text-center separator container ">I am a...</h2>
+        <br />
+        <div
+          className="flex flex-1 flex-wrap gap container"
+          style={{
+            height: 220,
+          }}
+        >
+          <IndexLink href="#WebDev" icon={<WebDevI />} desc="Web Developer" />
+          <IndexLink href="#Writer" icon={<WriteI />} desc="Writer, Redactor" />
+          {/* <IndexLink href="GameDev" icon={<GameI />} desc="Game Developer" /> */}
+          {/* <IndexLink />
+          <IndexLink />
+          <IndexLink />
+        <IndexLink /> */}
+        </div>
+      </article>
       <WebDev />
     </main>
   );

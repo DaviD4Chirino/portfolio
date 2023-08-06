@@ -1,67 +1,69 @@
-#WebDev{
-    #Projects{
-    display: grid;
-    gap: 1rem;
-    grid-template-areas: 
-    "newest newest second second"
-     "newest newest second second"
-     "newest newest third fourth"
-     "newest newest third fourth"
-    ;
+#WebDev {
+    // WebDev styles
 
-    margin-block: 2rem;
-    height: 20rem;
+    #Projects {
+        display: grid;
+        gap: 1rem;
+        width: 100%;
+        grid-template-areas:
+            "newest  second second"
+            "newest  second second"
+            "newest  third fourth"
+            "newest  third fourth";
 
-    .project{
-        &-1{
-            grid-area: newest;
-        }
-        &-2{
-            grid-area: second;
-        }
-        &-3{
-            grid-area: third;
-        }
-        &-4{
-            grid-area: fourth;
-        }
-        .debug-red {width: 50px; height: 200px}
-    }
-}
+        margin-block: 2rem;
+        min-height: 20rem;
 
-}
-        
-@media (max-width:700px){
-    #WebDev{
-        #ProjectsSample {
-                grid-template-areas:
-                    "newest newest"
-                    "newest newest"
-                    "newest newest"
-                    "newest newest"
-                    "second second"
-                    "second second"
-                    "third fourth"
-                    "third fourth "
-                ;
+        .project {
+            &-1 {
+                grid-area: newest;
             }
-    }
-    
-}
-@media (max-width:200px) {
-    #WebDev{
-        #ProjectsSample {
-                grid-template-areas:
-                    "newest "
-                    "newest "
-                    "newest "
-                    "newest "
-                    "second "
-                    "second "
-                    "third "
-                    " fourth "
-                ;
+
+            &-2 {
+                grid-area: second;
             }
+
+            &-3 {
+                grid-area: third;
+            }
+
+            &-4 {
+                grid-area: fourth;
+            }
+
+            .debug-red {
+                width: 50px;
+                height: 200px;
+            }
+        }
     }
 
+    @media (max-width: 800px) {
+        #Projects {
+            min-height: 100vh;
+            grid-template-areas:
+                "newest newest"
+                "newest newest"
+                "newest newest"
+                "newest newest"
+                "second second"
+                "second second"
+                "third fourth"
+                "third fourth";
+        }
+    }
+
+    @media (max-width: 500px) {
+        #Projects {
+            grid-template-areas:
+                "newest"
+                "newest"
+                "newest"
+                "newest"
+                "second"
+                "second"
+                "third"
+                "fourth";
+        }
+    }
 }
