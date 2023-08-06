@@ -1,4 +1,5 @@
-#ProjectsSample{
+#WebDev{
+    #Projects{
     display: grid;
     gap: 1rem;
     grid-template-areas: 
@@ -27,34 +28,40 @@
         .debug-red {width: 50px; height: 200px}
     }
 }
+
+}
         
 @media (max-width:700px){
-    #ProjectsSample{
-        grid-template-areas: 
-        "newest newest"
-        "newest newest"
-        "newest newest"
-        "newest newest"
-        "second second"
-        "second second" 
-        "third fourth"
-        "third fourth "
-        ;
+    #WebDev{
+        #ProjectsSample {
+                grid-template-areas:
+                    "newest newest"
+                    "newest newest"
+                    "newest newest"
+                    "newest newest"
+                    "second second"
+                    "second second"
+                    "third fourth"
+                    "third fourth "
+                ;
+            }
     }
     
 }
 @media (max-width:200px) {
-    #ProjectsSample {
-        grid-template-areas:
-            "newest "
-            "newest "
-            "newest "
-            "newest "
-            "second "
-            "second "
-            "third "
-            " fourth "
-        ;
+    #WebDev{
+        #ProjectsSample {
+                grid-template-areas:
+                    "newest "
+                    "newest "
+                    "newest "
+                    "newest "
+                    "second "
+                    "second "
+                    "third "
+                    " fourth "
+                ;
+            }
     }
 
 }

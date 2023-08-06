@@ -63,13 +63,27 @@ export default function WebDev() {
       </motion.div>
       <div className="container">
         <h3>Some of my projects includes:</h3>
-        <div id="ProjectsSample">
-          <div className="debug-red project-1"></div>
-          <div className="debug-red project-2"></div>
-          <div className="debug-red project-3"></div>
-          <div className="debug-red project-4"></div>
+        <div id="Projects">
+          <Project id={1}></Project>
+          <Project id={2}></Project>
+          <Project id={3}></Project>
+          <Project id={4}></Project>
         </div>
       </div>
     </article>
+  );
+}
+
+function Project({ id }: { id: number }) {
+  const elipsis = id !== 1 ? "text-elipsis" : "";
+  return (
+    <div id="Project" className={`color-2-bg  project-${id}`}>
+      <div className="info">
+        <h3 className="title">Ullnetwork</h3>
+        <p className={`description ${elipsis}`}>
+          A web page I built for a client
+        </p>
+      </div>
+    </div>
   );
 }

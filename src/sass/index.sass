@@ -1,6 +1,6 @@
 $n: 10
 $general-amt: 1rem
-@use "./mixins" as *
+@use "mixins" as *
 
 //  General page changes ^
 .container
@@ -13,6 +13,14 @@ $general-amt: 1rem
 .no
     &-opacity
         opacity: 0
+//* Aspect ratio
+.aspect-ratio
+    &-1-2
+        aspect-ratio: 1 / 2
+    &-2-1
+        aspect-ratio: 2 / 1
+    &-1-1
+        aspect-ratio: 1 / 1
 
 //width, height and size
 .size
@@ -106,20 +114,47 @@ $general-amt: 1rem
     $amt: $general-amt * $i
     @if $i < 1
         .padding
+            &-025
+                padding: $general-amt * 0.25
+            &-05
+                padding: $general-amt * 0.5
             &-x
                 padding-inline: $general-amt
                 &-start,&-top
                     padding-inline-start: $general-amt
+                    &-025
+                        padding-inline-end: $general-amt * 0.25
+                    &-05
+                        padding-inline-end: $general-amt * 0.5
                 &-end,&-bottom
                     padding-inline-end: $general-amt
+                    &-025
+                        padding-inline-end: $general-amt * 0.25
+                    &-05
+                        padding-inline-end: $general-amt * 0.5
+                &-025
+                    padding-inline: $general-amt * 0.25
+                &-05
+                    padding-inline: $general-amt * 0.5
 
             &-y
                 padding-block: $general-amt
                 &-start,&-top
                     padding-block-start: $general-amt
+                    &-025
+                        padding-block-start: $general-amt * 0.25
+                    &-05
+                        padding-block-start: $general-amt * 0.5
                 &-end,&-bottom
                     padding-block-end: $general-amt
-
+                    &-025
+                        padding-block-end: $general-amt * 0.25
+                    &-05
+                        padding-block-end: $general-amt * 0.5
+                &-025
+                    padding-block: $general-amt * 0.25
+                &-05
+                    padding-block: $general-amt * 0.5
         .margin
             &-x
                 margin-inline: $general-amt
@@ -144,9 +179,16 @@ $general-amt: 1rem
         .padding
             &-x-#{$i}
                 padding-inline: $amt
+                &-start,&-top
+                    padding-inline-start: $general-amt
+                &-end,&-bottom
+                    padding-inline-end: $general-amt
             &-y-#{$i}
                 padding-block: $amt
-
+                &-start,&-top
+                    padding-block-start: $general-amt
+                &-end,&-bottom
+                    padding-block-end: $general-amt
         .margin
             &-x-#{$i}
                 margin-inline: $amt
@@ -218,6 +260,8 @@ $general-amt: 1rem
             justify-content: space-between
         &-around
             justify-content: space-around
+        &-evenly
+            justify-content: space-evenly
 
     &-items
         &-center
@@ -299,6 +343,13 @@ $general-amt: 1rem
         white-space: nowrap
         overflow: hidden
         text-overflow: ellipsis
+
+        &-multiline
+            display: -webkit-box
+            -webkit-box-orient: vertical
+            -webkit-line-clamp: 3
+            overflow: hidden
+            text-overflow: ellipsis
 
 .muted //* Opacity for a class that i can use everywere
     opacity: .5
@@ -403,10 +454,42 @@ $general-amt: 1rem
 //     font-size: 1.5rem
 
 // positioning
-.absolute
-    position: absolute
-    &-center
-        @include absolute-center()
+.position
+    &-relative
+        position: relative
+    &-absolute
+        position: absolute
+
+        &-top
+            @include position($pos:absolute,$top: 0)
+
+        &-right
+            @include position($pos:absolute,$right: 0)
+
+        &-bottom
+            @include position($pos:absolute,$bottom: 0)
+
+        &-left
+            @include position($pos:absolute,$left: 0)
+
+        &-center
+            @include absolute-center()
+    &-sticky
+        position: sticky
+        top: 0
+    &-fixed
+        position: fixed
+        &-top
+            @include position($pos:fixed,$top: 0)
+
+        &-right
+            @include position($pos:fixed,$right: 0)
+
+        &-bottom
+            @include position($pos:fixed,$bottom: 0)
+
+        &-left
+            @include position($pos:fixed,$left: 0)
 
 .relative
     position: relative
@@ -422,24 +505,7 @@ $general-amt: 1rem
 // miscellanius
 .user-select-none
     user-select: none
-.separator
-    position: relative
-    display: flex
-    justify-content: center
-    align-items: center
-    gap: .5rem
-    &::before,
-    &::after
-        content: ''
-        display: block
-        height: 0.09em
-        min-width: 20vw
 
-    &::before
-        background: linear-gradient(to right, rgba(240,240,240,0), #fff)
-
-    &::after
-        background: linear-gradient(to left, rgba(240,240,240,0), #fff)
 .debug
     &-red
         border: 1px solid red
